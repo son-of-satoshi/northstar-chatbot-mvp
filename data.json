@@ -1,0 +1,253 @@
+{
+  "orders": [
+    {
+      "id": "ORD-9821",
+      "customer": "Alex Morgan",
+      "email": "alex.m@example.com",
+      "status": "In Transit",
+      "carrier": "FedEx Express",
+      "trackingNumber": "FX-883920194US",
+      "estimatedDelivery": "Tomorrow, by 4:00 PM",
+      "currentLocation": "Chicago Logistics Hub, IL",
+      "orderDate": "2026-08-11",
+      "total": "$189.99",
+      "items": [
+        { "name": "Wireless Noise-Canceling Headphones", "quantity": 1, "price": "$149.99", "sku": "TECH-WNH-01" },
+        { "name": "Hard Shell Protective Travel Case", "quantity": 1, "price": "$40.00", "sku": "ACC-HSC-09" }
+      ],
+      "timeline": [
+        { "step": "Order Placed", "time": "Aug 11, 09:30 AM", "completed": true },
+        { "step": "Processing & Packaging", "time": "Aug 11, 02:15 PM", "completed": true },
+        { "step": "Shipped via FedEx", "time": "Aug 12, 08:00 AM", "completed": true },
+        { "step": "Out for Delivery", "time": "Pending", "completed": false },
+        { "step": "Delivered", "time": "Estimated Aug 15", "completed": false }
+      ]
+    },
+    {
+      "id": "ORD-4512",
+      "customer": "Sarah Jenkins",
+      "email": "sarah.j@example.com",
+      "status": "Delivered",
+      "carrier": "UPS Ground",
+      "trackingNumber": "1Z9999999999999999",
+      "estimatedDelivery": "Delivered on Aug 12, 2:15 PM",
+      "currentLocation": "Front Porch, Seattle WA",
+      "orderDate": "2026-08-08",
+      "total": "$249.50",
+      "items": [
+        { "name": "Ergonomic Mechanical Keyboard (RGB)", "quantity": 1, "price": "$179.50", "sku": "TECH-EMK-02" },
+        { "name": "Memory Foam Wrist Rest Pad", "quantity": 2, "price": "$35.00", "sku": "ACC-MFW-05" }
+      ],
+      "timeline": [
+        { "step": "Order Placed", "time": "Aug 08, 11:00 AM", "completed": true },
+        { "step": "Processing", "time": "Aug 08, 04:00 PM", "completed": true },
+        { "step": "Shipped via UPS", "time": "Aug 09, 10:30 AM", "completed": true },
+        { "step": "Out for Delivery", "time": "Aug 12, 08:15 AM", "completed": true },
+        { "step": "Delivered", "time": "Aug 12, 02:15 PM", "completed": true }
+      ]
+    },
+    {
+      "id": "ORD-1088",
+      "customer": "David Kim",
+      "email": "david.k@example.com",
+      "status": "Processing",
+      "carrier": "DHL Express",
+      "trackingNumber": "DHL-3301984210",
+      "estimatedDelivery": "Aug 18, 2026",
+      "currentLocation": "Central Warehouse (Austin, TX)",
+      "orderDate": "2026-08-13",
+      "total": "$89.00",
+      "items": [
+        { "name": "Ultra HD 4K Streaming Webcam", "quantity": 1, "price": "$89.00", "sku": "TECH-4KW-03" }
+      ],
+      "timeline": [
+        { "step": "Order Placed", "time": "Aug 13, 03:45 PM", "completed": true },
+        { "step": "Processing & Quality Check", "time": "In Progress", "completed": true },
+        { "step": "Shipped", "time": "Scheduled Aug 15", "completed": false },
+        { "step": "Delivered", "time": "Estimated Aug 18", "completed": false }
+      ]
+    },
+    {
+      "id": "ORD-7734",
+      "customer": "Elena Rostova",
+      "email": "elena.r@example.com",
+      "status": "Ready for Pickup",
+      "carrier": "In-Store Pickup (Downtown Flagship)",
+      "trackingNumber": "PU-7734-DT",
+      "estimatedDelivery": "Ready for pickup today",
+      "currentLocation": "Downtown Store, Locker #14",
+      "orderDate": "2026-08-14",
+      "total": "$129.99",
+      "items": [
+        { "name": "Smart Fitness Watch V3 (Waterproof)", "quantity": 1, "price": "$129.99", "sku": "FIT-SFW-04" }
+      ],
+      "timeline": [
+        { "step": "Order Received", "time": "Aug 14, 08:00 AM", "completed": true },
+        { "step": "Item Picked & Staged", "time": "Aug 14, 09:15 AM", "completed": true },
+        { "step": "Ready for Pickup", "time": "Aug 14, 09:30 AM", "completed": true }
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "id": "TECH-WNH-01",
+      "name": "Wireless Noise-Canceling Headphones",
+      "category": "Audio & Electronics",
+      "price": 149.99,
+      "inStock": true,
+      "stockCount": 42,
+      "warehouse": "Dallas Regional (DFW-1)",
+      "rating": 4.8,
+      "leadTime": "1-2 business days",
+      "keywords": ["headphone", "headphones", "audio", "wireless", "noise canceling", "bluetooth", "earphones", "earphone", "music"]
+    },
+    {
+      "id": "TECH-EMK-02",
+      "name": "Ergonomic Mechanical Keyboard (RGB)",
+      "category": "Computer Accessories",
+      "price": 179.50,
+      "inStock": true,
+      "stockCount": 18,
+      "warehouse": "Nevada Hub (RNO-2)",
+      "rating": 4.9,
+      "leadTime": "2-3 business days",
+      "keywords": ["keyboard", "mechanical", "ergonomic", "typing", "rgb", "keyboards", "switches"]
+    },
+    {
+      "id": "TECH-4KW-03",
+      "name": "Ultra HD 4K Streaming Webcam",
+      "category": "Video & Streaming",
+      "price": 89.00,
+      "inStock": true,
+      "stockCount": 65,
+      "warehouse": "Austin Central (AUS-3)",
+      "rating": 4.7,
+      "leadTime": "Same-day shipping",
+      "keywords": ["webcam", "camera", "4k", "streaming", "video", "conference", "zoom", "cam"]
+    },
+    {
+      "id": "FIT-SFW-04",
+      "name": "Smart Fitness Watch V3 (Waterproof)",
+      "category": "Wearables",
+      "price": 129.99,
+      "inStock": false,
+      "stockCount": 0,
+      "warehouse": "Restock arriving Aug 22",
+      "rating": 4.6,
+      "leadTime": "Pre-order available (ships Aug 23)",
+      "keywords": ["watch", "fitness", "smartwatch", "tracker", "smart watch", "heart rate", "fitbit", "wearable"]
+    },
+    {
+      "id": "ACC-DK-05",
+      "name": "USB-C Dual 4K Docking Station (100W PD)",
+      "category": "Computer Accessories",
+      "price": 119.00,
+      "inStock": true,
+      "stockCount": 27,
+      "warehouse": "Chicago Central (ORD-4)",
+      "rating": 4.8,
+      "leadTime": "1-2 business days",
+      "keywords": ["dock", "docking station", "hub", "usb-c", "usbc", "adapter", "monitors", "charger"]
+    },
+    {
+      "id": "PWR-SOL-06",
+      "name": "Solar Fast-Charge Power Bank 20000mAh",
+      "category": "Power & Chargers",
+      "price": 54.99,
+      "inStock": true,
+      "stockCount": 83,
+      "warehouse": "Dallas Regional (DFW-1)",
+      "rating": 4.5,
+      "leadTime": "Same-day shipping",
+      "keywords": ["power bank", "battery", "charger", "solar", "portable charger", "powerbank", "backup battery"]
+    }
+  ],
+  "policies": {
+    "returns": {
+      "windowDays": 30,
+      "condition": "Unopened or like-new original condition with all accessories and packaging.",
+      "fee": "Free prepaid return label included on all eligible domestic orders.",
+      "refundProcessingDays": "3 to 5 business days after inspection at our fulfillment facility.",
+      "exceptions": "Digital downloads, custom-engraved merchandise, and gift cards are non-refundable."
+    },
+    "shipping": {
+      "standard": "Free on orders over $50 (3-5 business days)",
+      "express": "$9.99 (2 business days)",
+      "overnight": "$19.99 (Next business day if placed before 2 PM EST)",
+      "international": "Available to 60+ countries via DHL Global Express (5-10 business days)"
+    },
+    "support": {
+      "hours": "Monday - Friday: 8:00 AM - 9:00 PM EST | Weekends: 9:00 AM - 6:00 PM EST",
+      "email": "support@omnichat-store.com",
+      "phone": "+1 (800) 555-0199",
+      "liveAgentAvgWaitMinutes": 2
+    }
+  },
+  "faqs": [
+    {
+      "id": "faq-return-policy",
+      "category": "returns",
+      "question": "What is your return policy?",
+      "keywords": ["return", "refund", "return policy", "money back", "exchange", "send back"],
+      "answer": {
+        "en": "We offer a hassle-free 30-day return policy for any item in original condition. Return shipping is 100% free with our prepaid printable label!",
+        "sw": "Tunatoa sera ya kurudisha bidhaa ndani ya siku 30 bila usumbufu kwa bidhaa yoyote katika hali ya asili. Usafirishaji wa kurudisha ni bure kabisa!",
+        "fr": "Nous offrons une politique de retour sans tracas de 30 jours pour tout article dans son état d'origine. Les frais de retour sont 100% gratuits avec notre étiquette prépayée !",
+        "es": "¡Ofrecemos una política de devolución sin complicaciones de 30 días para cualquier artículo en su estado original. El envío de devolución es 100% gratis con nuestra etiqueta prepagada!"
+      }
+    },
+    {
+      "id": "faq-shipping-costs",
+      "category": "shipping",
+      "question": "How much does shipping cost?",
+      "keywords": ["shipping cost", "delivery fee", "free shipping", "shipping rate", "postage", "deliver"],
+      "answer": {
+        "en": "Standard shipping is FREE for all orders over $50 (3-5 business days). For orders under $50, standard shipping is a flat $4.99. Express 2-day shipping is $9.99, and overnight is $19.99.",
+        "sw": "Usafirishaji wa kawaida ni BURE kwa maagizo yote zaidi ya $50 (siku 3-5 za kazi). Chini ya $50 ni $4.99. Usafirishaji wa haraka wa siku 2 ni $9.99.",
+        "fr": "La livraison standard est GRATUITE pour toute commande de plus de 50 $ (3-5 jours ouvrés). En dessous de 50 $, c'est 4,99 $. La livraison express 2 jours coûte 9,99 $.",
+        "es": "El envío estándar es GRATIS para todos los pedidos superiores a $50 (3-5 días hábiles). Menos de $50 cuesta $4.99. El envío exprés en 2 días cuesta $9.99."
+      }
+    },
+    {
+      "id": "faq-payment-methods",
+      "category": "payment",
+      "question": "What payment methods do you accept?",
+      "keywords": ["payment", "pay", "credit card", "paypal", "apple pay", "google pay", "klarna", "visa", "mastercard"],
+      "answer": {
+        "en": "We accept Visa, MasterCard, American Express, Discover, PayPal, Apple Pay, Google Pay, and flexible 4-installment financing via Klarna & Afterpay.",
+        "sw": "Tunakubali Visa, MasterCard, American Express, PayPal, Apple Pay, Google Pay, na malipo ya awamu 4 kupitia Klarna na Afterpay.",
+        "fr": "Nous acceptons Visa, MasterCard, American Express, PayPal, Apple Pay, Google Pay et le paiement en 4 fois sans frais avec Klarna et Afterpay.",
+        "es": "Aceptamos Visa, MasterCard, American Express, PayPal, Apple Pay, Google Pay y pagos en 4 plazos mediante Klarna y Afterpay."
+      }
+    },
+    {
+      "id": "faq-store-hours",
+      "category": "general",
+      "question": "What are your business hours?",
+      "keywords": ["hours", "open", "closing time", "store hours", "operating hours", "weekend"],
+      "answer": {
+        "en": "Our digital store and automated AI assistant are open 24/7! Our human support team is available Mon-Fri 8:00 AM - 9:00 PM EST and Sat-Sun 9:00 AM - 6:00 PM EST.",
+        "sw": "Duka letu la mtandaoni na bot yetu hufanya kazi saa 24/7! Timu yetu ya binadamu inapatikana Jt-Jp 8:00 Asubuhi - 9:00 Usiku EST.",
+        "fr": "Notre boutique en ligne et notre assistant IA fonctionnent 24h/24 et 7j/7 ! Nos conseillers humains sont disponibles du lundi au vendredi de 8h à 21h EST.",
+        "es": "¡Nuestra tienda en línea y asistente IA están abiertos las 24 horas del día, los 7 días de la semana! Nuestro equipo humano está disponible de lunes a viernes de 8:00 a 21:00 EST."
+      }
+    },
+    {
+      "id": "faq-discount-codes",
+      "category": "promotions",
+      "question": "Do you have any active discount promo codes?",
+      "keywords": ["discount", "coupon", "promo code", "promo", "voucher", "deal", "sale", "save money"],
+      "answer": {
+        "en": "Use promo code 'WELCOME10' for 10% off your first purchase! You can also sign up for our VIP newsletter to get $15 off orders over $75.",
+        "sw": "Tumia msimbo wa ofa 'WELCOME10' ili kupata punguzo la 10% kwenye ununuzi wako wa kwanza! Jisajili pia kwa jarida letu kupata punguzo la $15.",
+        "fr": "Utilisez le code promo 'WELCOME10' pour 10% de réduction sur votre première commande ! Inscrivez-vous aussi à notre newsletter pour 15 $ offerts.",
+        "es": "¡Usa el código promocional 'WELCOME10' para un 10% de descuento en tu primera compra! Suscríbete a nuestro boletín para ahorrar $15 adicionales."
+      }
+    }
+  ],
+  "agents": [
+    { "name": "Elena Rostova", "department": "Customer Experience Lead", "status": "Online", "avatar": "👩‍💼" },
+    { "name": "Marcus Vance", "department": "Technical & Shipping Support", "status": "Online", "avatar": "👨‍💻" },
+    { "name": "Amara Diallo", "department": "Returns & Warranty Specialist", "status": "Online", "avatar": "👩‍🔧" }
+  ]
+}

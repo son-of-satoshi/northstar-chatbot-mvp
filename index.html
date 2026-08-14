@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniChat Web Chatbot - Production Grade AI Assistant</title>
+    <meta name="description" content="Production-grade, modular web chatbot with NLP intent parsing, multilingual support, contextual memory, and human handoff." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- ==========================================================================
+         Demo Host Page Context (E-Commerce Storefront Simulator)
+         ========================================================================== -->
+    <main class="demo-host-page" id="demo-page">
+      <!-- Navbar -->
+      <header class="demo-navbar" id="main-nav">
+        <div class="brand-badge">
+          <div class="brand-icon">🛍️</div>
+          <div>OmniStore Global</div>
+        </div>
+        <div class="demo-nav-actions">
+          <button class="demo-btn demo-btn-secondary" id="host-lang-btn" onclick="window.OmniChat?.toggleAnalytics(true)">
+            📊 Analytics & Logs
+          </button>
+          <button class="demo-btn demo-btn-primary" id="host-chat-trigger" onclick="window.OmniChat?.toggleChat(true)">
+            💬 Open Assistant
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Banner -->
+      <section class="demo-hero" id="hero-section">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h1>OmniChat Intelligent Web Assistant</h1>
+            <p>
+              A zero-dependency, production-grade conversational AI engine featuring regular expression and fuzzy keyword intent classification, 
+              contextual multi-turn entity retention, 4-language on-the-fly translation, seamless human escalation, and automatic PII data masking.
+            </p>
+          </div>
+        </div>
+
+        <!-- Live Architecture Specs Grid -->
+        <div class="demo-feature-grid">
+          <div class="demo-feature-card" data-query="Track order ORD-9821" id="feat-card-order">
+            <span class="feat-icon">📦</span>
+            <span class="feat-title">Order Status & Tracking</span>
+            <span class="feat-desc">Extracts order entities and queries mock database with live delivery timelines.</span>
+            <span class="feat-tag">Try: ORD-9821</span>
+          </div>
+
+          <div class="demo-feature-card" data-query="Check stock for wireless headphones" id="feat-card-stock">
+            <span class="feat-icon">🎧</span>
+            <span class="feat-title">Real-Time Inventory</span>
+            <span class="feat-desc">Checks warehouse quantities, unit pricing, lead times, and availability flags.</span>
+            <span class="feat-tag">Try: Headphones</span>
+          </div>
+
+          <div class="demo-feature-card" data-query="What is your return policy?" id="feat-card-returns">
+            <span class="feat-icon">🔄</span>
+            <span class="feat-title">Returns & Refunds Policy</span>
+            <span class="feat-desc">Delivers instant policy rules, window guidelines, and refund turnaround steps.</span>
+            <span class="feat-tag">Try: Return Policy</span>
+          </div>
+
+          <div class="demo-feature-card" data-query="I want to speak with a human agent" id="feat-card-handoff">
+            <span class="feat-icon">👩‍💼</span>
+            <span class="feat-title">Seamless Human Handoff</span>
+            <span class="feat-desc">Escalates via explicit triggers or 3 consecutive fallbacks with transcript export.</span>
+            <span class="feat-tag">Try: Agent Request</span>
+          </div>
+        </div>
+
+        <!-- Quick Scenario Tester Chips -->
+        <div class="scenarios-section" id="scenarios-panel">
+          <div class="scenarios-title">Interactive NLP Test Scenarios</div>
+          <div class="scenarios-list">
+            <button class="scenario-chip" data-query="Where is my package ORD-4512?">
+              🚚 "Where is my package ORD-4512?"
+            </button>
+            <button class="scenario-chip" data-query="Habari, nataka kufuatilia agizo langu">
+              🇰🇪 "Habari, nataka kufuatilia agizo langu" (Swahili)
+            </button>
+            <button class="scenario-chip" data-query="Bonjour, quelle est votre politique de retour ?">
+              🇫🇷 "Quelle est votre politique de retour ?" (French)
+            </button>
+            <button class="scenario-chip" data-query="¿Tienen stock del teclado mecánico?">
+              🇪🇸 "¿Tienen stock del teclado mecánico?" (Spanish)
+            </button>
+            <button class="scenario-chip" data-query="My card 4532-1192-3849-9821 was charged twice">
+              🛡️ "My card 4532-1192-3849-9821..." (PII Masking Test)
+            </button>
+            <button class="scenario-chip" data-query="Do you have any discount promo codes?">
+              🎉 "Do you have any discount promo codes?"
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================================
+         Floating Launcher Widget (Bottom Right)
+         ========================================================================== -->
+    <aside class="chatbot-launcher-wrapper" id="chatbot-launcher">
+      <div class="launcher-tooltip" id="launcher-tooltip">
+        <span>👋 Need help? Chat with AI Assistant</span>
+      </div>
+      <button class="chatbot-toggle-btn" id="chatbot-toggle-btn" aria-label="Open OmniChat Assistant">
+        <span class="icon-open">💬</span>
+        <span class="icon-close">✕</span>
+        <span class="unread-badge" id="unread-badge">1</span>
+      </button>
+    </aside>
+
+    <!-- ==========================================================================
+         Main Chatbot Window Container
+         ========================================================================== -->
+    <section class="chatbot-container" id="chatbot-container" role="dialog" aria-modal="true" aria-label="OmniChat Support Window">
+      
+      <!-- Header Area -->
+      <header class="chatbot-header" id="chatbot-header">
+        <div class="bot-info">
+          <div class="bot-avatar-wrapper">
+            <div class="bot-avatar" id="header-avatar">🤖</div>
+            <div class="bot-status-indicator pulse" id="header-pulse" title="System Online"></div>
+          </div>
+          <div class="bot-details">
+            <div class="bot-name-row">
+              <span class="bot-name" id="header-name">OmniBot Assistant</span>
+              <span class="bot-badge">AI 2.0</span>
+            </div>
+            <span class="bot-subtext" id="header-status">Online | Instant AI Support</span>
+          </div>
+        </div>
+
+        <!-- Header Controls -->
+        <div class="header-actions">
+          <!-- Multilingual Language Selector -->
+          <div class="lang-select-wrapper" title="Change Language">
+            <select class="lang-select" id="lang-select" aria-label="Select Language">
+              <option value="en">🇺🇸 EN</option>
+              <option value="sw">🇰🇪 SW</option>
+              <option value="fr">🇫🇷 FR</option>
+              <option value="es">🇪🇸 ES</option>
+            </select>
+            <span class="lang-select-arrow">▼</span>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button class="header-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+            🌙
+          </button>
+
+          <!-- Acoustic Sound Feedback Toggle -->
+          <button class="header-btn" id="sound-toggle-btn" title="Toggle Audio Chimes" aria-label="Toggle Audio">
+            🔊
+          </button>
+
+          <!-- Analytics & Logs Drawer Toggle -->
+          <button class="header-btn" id="analytics-toggle-btn" title="Performance & Analytics" aria-label="Open Analytics">
+            📊
+          </button>
+
+          <!-- Reset / Wipe Session -->
+          <button class="header-btn" id="reset-chat-btn" title="Reset Session & Clear History" aria-label="Reset Conversation">
+            🔄
+          </button>
+
+          <!-- Maximize / Window Resize -->
+          <button class="header-btn" id="expand-btn" title="Toggle Fullscreen" aria-label="Expand Window">
+            🗖
+          </button>
+
+          <!-- Close Chat -->
+          <button class="header-btn" id="close-chat-btn" title="Close Chat" aria-label="Close Chat Window">
+            ✕
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Body -->
+      <div class="chat-body" id="chat-body">
+        
+        <!-- Live Message Scroll Feed -->
+        <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
+          <!-- Messages will be rendered here dynamically by app.js -->
+        </div>
+
+        <!-- Analytics Drawer (Overlay) -->
+        <aside class="analytics-drawer" id="analytics-drawer">
+          <div class="drawer-header">
+            <div class="drawer-title">
+              <span>📊</span>
+              <span>Chatbot Performance & Metrics</span>
+            </div>
+            <button class="header-btn" id="close-drawer-btn" aria-label="Close Analytics">✕</button>
+          </div>
+          <div class="drawer-content">
+            <div class="metric-grid">
+              <div class="metric-box">
+                <span class="metric-num" id="metric-deflection-rate">100%</span>
+                <span class="metric-lbl">Deflection Rate</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-num" id="metric-total-turns">0</span>
+                <span class="metric-lbl">Total Turns</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-num" id="metric-avg-latency">450ms</span>
+                <span class="metric-lbl">Avg. Latency</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-num" id="metric-csat-score">5.0 / 5.0</span>
+                <span class="metric-lbl">CSAT Rating</span>
+              </div>
+            </div>
+
+            <div class="scenarios-title" style="margin-top: 12px;">Data Privacy & Export</div>
+            <p style="font-size: 12px; color: var(--text-secondary);">
+              Download the current multi-turn session payload including entity memory, NLP intent metadata, and timestamps.
+            </p>
+
+            <div class="transcript-actions">
+              <button class="demo-btn demo-btn-secondary" id="export-json-btn">
+                💾 Download Transcript (JSON Format)
+              </button>
+              <button class="demo-btn demo-btn-secondary" id="export-txt-btn">
+                📄 Download Transcript (Plain Text)
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Quick Reply Action Chips Carousel -->
+      <nav class="quick-replies-container" id="quick-replies-container" aria-label="Quick Action Replies">
+        <!-- Action chips injected dynamically by app.js -->
+      </nav>
+
+      <!-- Footer & Input Controls -->
+      <footer class="chat-footer" id="chat-footer">
+        <div class="privacy-shield-indicator">
+          <span class="shield-tag" id="shield-indicator">
+            <span>🛡️</span>
+            <span>PII Guard Active</span>
+          </span>
+          <span style="font-size: 10px; color: var(--text-muted);">Client-side masked</span>
+        </div>
+
+        <form class="input-row" id="chat-input-form">
+          <textarea
+            class="chat-input"
+            id="chat-input"
+            rows="1"
+            placeholder="Type your message here... (e.g. 'Track ORD-9821')"
+            aria-label="Chat input message"
+          ></textarea>
+          <button type="submit" class="send-btn" id="chat-send-btn" aria-label="Send Message">
+            ➤
+          </button>
+        </form>
+      </footer>
+    </section>
+
+    <!-- Vanilla Script Core Engine -->
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "OmniChat Web Chatbot",
+  "description": "Production-grade, modular web chatbot with NLP intent parsing, multilingual support, contextual memory, and human handoff.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
