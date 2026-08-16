@@ -1,8 +1,7 @@
 # Project Documentation Contribution
 
-## Member Name
-
-Eric Maina
+## Member Name: Eric Maina
+##  Email: erickmaina2004@gmail.com
 
 ## Primary Task Owned
 
@@ -23,7 +22,7 @@ Head of Documentation — project documentation, README preparation, system desc
 * CSS
 * JavaScript
 * JSON
-* GitHub
+
 
 ## Contribution
 
