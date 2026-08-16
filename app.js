@@ -25,19 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Simulated Bot Response Logic
     setTimeout(() => {
       const lower = text.toLowerCase();
-      if (lower.includes('ord-9821') || lower.includes('order') || lower.includes('track')) {
-        appendMessage('📦 Order #ORD-9821 is currently in transit and scheduled for delivery tomorrow by 3:00 PM.');
-      } else if (lower.includes('return') || lower.includes('refund')) {
-        appendMessage('🔄 We offer a 30-day return policy for unused items in original packaging. Would you like to start a return request?');
-      } else if (lower.includes('stock') || lower.includes('item') || lower.includes('headphones')) {
-        appendMessage('🏷️ Wireless Noise-Canceling Headphones are in stock (14 units available).');
-      } else if (lower.includes('human') || lower.includes('agent')) {
-        appendMessage('👤 Connecting you to a support agent... Estimated wait time: 2 minutes.');
-      } else {
-        appendMessage("🤖 Thanks for reaching out! I'm here to help with order tracking, returns, or product availability.");
-      }
-    }, 600);
-  }
+      // Conversational intent routing
+if (lower.includes('return') || lower.includes('refund')) {
+  appendMessage('🔄 We offer a 30-day return policy for unused items in original packaging. Would you like to start a return request?');
+} else if (
+  lower.includes('ord-9821') ||
+  lower.includes('order') ||
+  lower.includes('track') ||
+  lower.includes('shipped') ||
+  lower.includes('ship') ||
+  lower.includes('arrive') ||
+  lower.includes('delivery') ||
+  lower.includes('package')
+) {
+  appendMessage('📦 Order #ORD-9821 is currently in transit and scheduled for delivery tomorrow by 3:00 PM.');
+} else if (lower.includes('stock') || lower.includes('item') || lower.includes('headphones')) {
+  appendMessage('🏷️ Wireless Noise-Canceling Headphones are in stock (14 units available).');
+} else if (lower.includes('human') || lower.includes('agent')) {
+  appendMessage('👤 Connecting you to a support agent... Estimated wait time: 2 minutes.');
+} else {
+  appendMessage("🤖 Thanks for reaching out! I'm here to help with order tracking, returns, or product availability.");
+}
+    },600);
 
   // Quick Reply Handler
   window.handleQuickReply = function(type) {
